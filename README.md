@@ -1,4 +1,4 @@
-# lib
+LiBRARY
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,7 @@ namespace RectangleAreaLibrary
         /// <summary>
         /// Вычисление площади прямоугольника по двум сторонам
         /// </summary>
+        
         /// <param name="width"></param>
         /// Ширина прямоугольника 
         /// <param name="height"></param>
@@ -25,7 +26,6 @@ namespace RectangleAreaLibrary
             height = height.Replace(".", ",");
             bool result = double.TryParse(width, out numbers);
             bool res = double.TryParse(height, out numbers);
-
             if (!result || !res)
             {
                 throw new Exception("Введите недопустимые символы");
@@ -46,6 +46,8 @@ namespace RectangleAreaLibrary
 }
 
 #test
+
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using RectangleAreaLibrary;
@@ -59,6 +61,7 @@ namespace RectangleAreaLibraryTests
     /// Первая сторона - положительное целое число,
     /// вторая сторона - положительное целое число
     /// </summary>
+    
         [TestMethod]
         public void RectangleArea_3and5_15returned()
         {
@@ -124,7 +127,6 @@ namespace RectangleAreaLibraryTests
             //Assert
             Assert.AreEqual(expected, actual);
         }
-
             /// <summary>
             /// Сторона прямоугольника задана отрицательным числом
             /// </summary>
@@ -147,7 +149,6 @@ namespace RectangleAreaLibraryTests
             string height = "0";
             GeometryRectangle obj = new GeometryRectangle();
             Assert.ThrowsException<Exception>(() => obj.RectangleArea(width, height));
-
         }
         [TestMethod]
         public void RectangleArea_WrongValue()
@@ -156,7 +157,6 @@ namespace RectangleAreaLibraryTests
             string height = "4";
             GeometryRectangle obj = new GeometryRectangle();
             Assert.ThrowsException<Exception>(() => obj.RectangleArea(width, height));
-
         }
         [TestMethod]
         public void RectangleArea_WrongValue1()
@@ -165,7 +165,6 @@ namespace RectangleAreaLibraryTests
             string height = " ";
             GeometryRectangle obj = new GeometryRectangle();
             Assert.ThrowsException<Exception>(() => obj.RectangleArea(width, height));
-
         }
         [TestMethod]
         public void RectangleArea_WrongValue2()
@@ -174,7 +173,6 @@ namespace RectangleAreaLibraryTests
             string height = "5,5";
             GeometryRectangle obj = new GeometryRectangle();
             Assert.ThrowsException<Exception>(() => obj.RectangleArea(width, height));
-
         }
         [TestMethod]
         public void RectangleArea_WrongValue3()
@@ -183,7 +181,6 @@ namespace RectangleAreaLibraryTests
             string height = "-5.5";
             GeometryRectangle obj = new GeometryRectangle();
             Assert.ThrowsException<Exception>(() => obj.RectangleArea(width, height));
-
         }
         [TestMethod]
         public void RectangleArea_WrongValue4()
